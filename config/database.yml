@@ -80,6 +80,5 @@ test:
 #
 production:
   <<: *default
-  database: url_ok_file_share_production
-  username: url_ok_file_share
-  password: <%= ENV["URL_OK_FILE_SHARE_DATABASE_PASSWORD"] %>
+    url: <%= ENV["DATABASE_URL"] %>
+
