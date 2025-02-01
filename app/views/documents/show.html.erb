@@ -1,0 +1,11 @@
+<h1>Votre fichier est prêt</h1>
+
+<% if @document.file.attached? %>
+  <p>Téléchargez votre fichier en cliquant ci-dessous :</p>
+  <a href="<%= @download_link %>" target="_blank" rel="noopener noreferrer">Télécharger le fichier</a>
+
+  <p>Ou partagez ce lien :</p>
+  <input type="text" value="<%= @download_link %>" readonly onclick="this.select();">
+<% else %>
+  <p>Le fichier n'est pas disponible.</p>
+<% end %>

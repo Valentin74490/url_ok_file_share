@@ -1,0 +1,7 @@
+<h1>Uploader un fichier</h1>
+
+<%= form_with(model: @document, local: true, html: { multipart: true }) do |form| %>
+  <%= form.label :file, "Choisissez un fichier :" %>
+  <%= form.file_field :file %>
+  <%= form.submit "Générer mon lien" %>
+<% end %>
