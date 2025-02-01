@@ -1,4 +1,6 @@
 class Document < ApplicationRecord
+  has_one_attached :image
+
   has_one_attached :file # Active Storage pour gérer les fichiers
 
   before_create :generate_uuid # Génère un UUID avant la sauvegarde

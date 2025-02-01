@@ -1,15 +1,15 @@
 <% content_for :head do %>
-  <meta property="og:title" content="Carte de visite de <%= @document.nom %>" />
+  <meta property="og:title" content="Carte de visite de <%= @document.nom || 'Contact' %>" />
   <meta property="og:description" content="Ajoutez-moi à vos contacts en un clic !" />
   <meta property="og:url" content="<%= request.original_url %>" />
   <meta property="og:type" content="profile" />
 
   <!-- Gérer l'affichage de l'image avec une image par défaut -->
-  <meta property="og:image" content="<%= @document.file.attached? ? url_for(@document.file) : asset_path('default_image.png') %>" />
+  <meta property="og:image" content="<%= @document.image.attached? ? url_for(@document.image) : asset_path('default_image.png') %>" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Carte de visite de <%= @document.nom %>" />
+  <meta name="twitter:title" content="Carte de visite de <%= @document.nom || 'Contact' %>" />
   <meta name="twitter:description" content="Ajoutez-moi à vos contacts en un clic !" />
-  <meta name="twitter:image" content="<%= @document.file.attached? ? url_for(@document.file) : asset_path('default_image.png') %>" />
+  <meta name="twitter:image" content="<%= @document.image.attached? ? url_for(@document.image) : asset_path('default_image.png') %>" />
 <% end %>
 
 <h1>Votre fichier est prêt</h1>
