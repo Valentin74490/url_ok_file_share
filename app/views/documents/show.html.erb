@@ -5,11 +5,17 @@
   <meta property="og:type" content="profile" />
 
   <!-- Gérer l'affichage de l'image avec une image par défaut -->
-  <meta property="og:image" content="<%= @document.image.attached? ? url_for(@document.image) : asset_path('default_image.png') %>" />
+  <% if @document.image.attached? %>
+    <meta property="og:image" content="<%= url_for(@document.image) %>" />
+    <meta name="twitter:image" content="<%= url_for(@document.image) %>" />
+  <% else %>
+    <meta property="og:image" content="https://via.placeholder.com/600x315" />
+    <meta name="twitter:image" content="https://via.placeholder.com/600x315" />
+  <% end %>
+
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Carte de visite de <%= @document.nom || 'Contact' %>" />
   <meta name="twitter:description" content="Ajoutez-moi à vos contacts en un clic !" />
-  <meta name="twitter:image" content="<%= @document.image.attached? ? url_for(@document.image) : asset_path('default_image.png') %>" />
 <% end %>
 
 <h1>Votre fichier est prêt</h1>

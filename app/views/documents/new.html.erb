@@ -1,6 +1,9 @@
-<%= form_with model: @document, local: true do |form| %>
-  <%= form.file_field :file, accept: ".vcf" %>
-  <%= form.label :image, "Ajouter une image de contact (optionnel)" %>
-  <%= form.file_field :image, accept: "image/png, image/jpeg" %>
-  <%= form.submit "Générer mon lien" %>
+<%= form_with(model: @document, local: true) do |form| %>
+  <%= form.label :file, "Importer un fichier (.dump)" %>
+  <%= form.file_field :file, accept: ".dump" %>
+
+  <%= form.label :image, "Ajouter une image (optionnel)" %>
+  <%= form.file_field :image, accept: "image/*" %>
+
+  <%= form.submit "Téléverser" %>
 <% end %>

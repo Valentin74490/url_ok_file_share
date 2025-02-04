@@ -5,24 +5,26 @@ class DocumentsController < ApplicationController
 
   def create
     @document = Document.new
-    @document.file.attach(params[:document][:file]) # Attacher le fichier .vcf
-    @document.image.attach(params[:document][:image]) if params[:document][:image] # Attacher l'image si elle est présente
+    @document.file.attach(params[:document][:file])
+    @document.image.attach(params[:document][:image]) if params[:document][:image]
 
     if @document.save
-      redirect_to @document # Redirige vers l'URL unique
+      redirect_to @document, notice: "Fichier .dump importé avec succès"
     else
+      flash[:alert] = @document.errors.full_messages.to_sentence
       render :new, status: :unprocessable_entity
     end
   end
 
   def show
+    return render plain: "Paramètre UUID invalide", status: :bad_request if params[:id].blank?
+
     @document = Document.find_by(uuid: params[:id])
 
     if @document.nil?
-      render plain: "Document not found", status: :not_found
+      render plain: "Document non trouvé", status: :not_found
     elsif @document.file.attached?
       @download_link = url_for(@document.file)
-      @image_url = @document.image.attached? ? url_for(@document.image) : asset_path('default_image.png')
     else
       render plain: "Fichier non trouvé", status: :not_found
     end
@@ -31,6 +33,6 @@ class DocumentsController < ApplicationController
   private
 
   def document_params
-    params.require(:document).permit(:file, :image) # Permettre l'upload de l'image en plus du fichier .vcf
+    params.require(:document).permit(:file, :image)
   end
 end
