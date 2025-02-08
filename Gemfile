@@ -19,7 +19,6 @@ gem "tailwindcss-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 gem 'simple_form', '~> 5.3'
-gem "font-awesome-sass", "~> VERSION"
 
 
 # Use Redis adapter to run Action Cable in production
@@ -49,6 +48,8 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+  gem "dotenv-rails"
+
 end
 
 group :development do
