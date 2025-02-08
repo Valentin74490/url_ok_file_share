@@ -1,0 +1,10 @@
+<h1>Profil de <%= @user.firstname %> <%= @user.name %></h1>
+
+<h2>Landing Page</h2>
+<% if @user.landing_pages.any? %>
+  <% @user.landing_pages.each do |landing_page| %>
+    <p><a href="<%= landing_page_path(landing_page.landing_url) %>">Voir la landing page</a></p>
+  <% end %>
+<% else %>
+  <p>Aucune landing page associée.</p>
+<% end %>

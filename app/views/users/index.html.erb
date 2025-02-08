@@ -1,0 +1,36 @@
+<h1>Les users</h1>
+
+<div class="relative overflow-x-auto">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Nom du user
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Prénom du user
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Landing page
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @users.each do | user |  %>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <%= user.name %>
+                </th>
+                <td class="px-6 py-4">
+                    <%= user.firstname %>
+                </td>
+                <td class="px-6 py-4">
+                    <%= user.facebook_url %>
+                </td>
+              <% end  %>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<li>les choses à faire </li>
