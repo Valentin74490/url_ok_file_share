@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_02_02_183602) do
+ActiveRecord::Schema[7.2].define(version: 2025_02_08_122607) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,7 +66,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_02_183602) do
     t.string "linkedin_url"
     t.string "facebook_url"
     t.string "whatsapp_url"
-    t.string "image_user"
     t.string "fiche_contact_url"
     t.string "address"
     t.datetime "created_at", null: false

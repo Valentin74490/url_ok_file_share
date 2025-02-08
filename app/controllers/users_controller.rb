@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :firstname)
+    params.require(:user).permit(:name, :firstname, :photo)
   end
 
   def create_landing_page(user)

@@ -1,22 +1,63 @@
 <h1 class="text-2xl font-bold mb-4">Créer un nouvel utilisateur</h1>
 
-<%= simple_form_for @user do |f| %>
+<%= simple_form_for @user, html: { multipart: true } do |f| %>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <%= f.input :name, label: "Nom", input_html: { class: "border p-2 rounded w-full" } %>
-    <%= f.input :firstname, label: "Prénom", input_html: { class: "border p-2 rounded w-full" } %>
+    <%= f.input :name,
+                label: "Nom",
+                input_html: { class: "border border-gray-300 p-2 rounded-lg w-full" },
+                label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
 
-    <%= f.input :phone, label: "Téléphone", input_html: { class: "border p-2 rounded w-full" } %>
+    <%= f.input :firstname,
+                label: "Prénom",
+                input_html: { class: "border border-gray-300 p-2 rounded-lg w-full" },
+                label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
 
-    <%= f.input :linkedin_url, label: "Profil LinkedIn", input_html: { class: "border p-2 rounded w-full" } %>
-    <%= f.input :facebook_url, label: "Profil Facebook", input_html: { class: "border p-2 rounded w-full" } %>
+    <%= f.input :password,
+                label: "Mot de passe",
+                input_html: { class: "border border-gray-300 p-2 rounded-lg w-full", type: "password" },
+                label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
 
-    <%= f.input :whatsapp_url, label: "WhatsApp", input_html: { class: "border p-2 rounded w-full" } %>
-    <%= f.input :image_user, label: "URL de l'image", input_html: { class: "border p-2 rounded w-full" } %>
+    <%= f.input :phone,
+                label: "Téléphone",
+                input_html: { class: "border border-gray-300 p-2 rounded-lg w-full" },
+                label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
 
-    <%= f.input :address, label: "Adresse", input_html: { class: "border p-2 rounded w-full" } %>
+    <%= f.input :linkedin_url,
+                label: "Profil LinkedIn",
+                input_html: { class: "border border-gray-300 p-2 rounded-lg w-full" },
+                label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
+
+    <%= f.input :facebook_url,
+                label: "Profil Facebook",
+                input_html: { class: "border border-gray-300 p-2 rounded-lg w-full" },
+                label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
+
+    <%= f.input :whatsapp_url,
+                label: "WhatsApp",
+                input_html: { class: "border border-gray-300 p-2 rounded-lg w-full" },
+                label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
+
+    <%= f.input :photo,
+            label: "Photo de profil",
+            as: :file,
+            input_html: { class: "border border-gray-300 p-2 rounded-lg w-full" },
+            label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
+
+
+    <%= f.input :fiche_contact_url,
+                label: "Fiche de contact (URL)",
+                input_html: { class: "border border-gray-300 p-2 rounded-lg w-full" },
+                label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
+
+    <%= f.input :address,
+                label: "Adresse",
+                input_html: { class: "border border-gray-300 p-2 rounded-lg w-full" },
+                label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
   </div>
 
   <div class="mt-4">
-    <%= f.button :submit, "Créer l'utilisateur", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    <%= f.button :submit,
+                 "Créer l'utilisateur",
+                 class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full" %>
   </div>
 <% end %>
