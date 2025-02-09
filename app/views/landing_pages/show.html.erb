@@ -1,22 +1,80 @@
-<div class="bg-[#fafafa]">
+<div class="justify-center items-center flex flex-col">
 
-  <div class="flex justify-center items-center">
-    <%= image_tag(@user.image_user.presence || '/emmanuel-ducrettet.jpeg',
-      class: "w-[300px] h-[300px] rounded-full border-4 border-[#004b49]",
-      alt: "Avatar") %>
+ <div class="flex justify-center items-center p-5">
+  <% if @user.photo.key? %>
+    <%= cl_image_tag @user.photo.key, transformation: { quality: 'auto:eco' }, class: "avatar" %>
+  <% else %>
+    <img class="avatar" src="<%= @user.avatar %>" alt="client avatar">
+  <% end %>
   </div>
 
-<div class="flex justify-center items-center p-5">
 
-<div><i class="fa-solid fa-phone"></i></div>
+
+
+  <h1 class= "text-2xl font-semibold text-teal-900"><%= @user.firstname %> <%= @user.name %></h1>
+
+  <div class="flex space-x-4">
+
+  <!-- Bouton Enregistrer le contact -->
+  <button type="button"
+    class="flex items-center justify-center space-x-2 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:from-blue-600 hover:via-blue-700 hover:to-blue-800 focus:ring-4 focus:ring-blue-300 font-semibold rounded-xl text-md px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+    <i class="fa-solid fa-address-book text-lg"></i>
+    <span>Enregistrer le contact</span>
+  </button>
+
+  <!-- Bouton Envoyer mes coordonnées -->
+  <button type="button"
+    class="flex items-center justify-center space-x-2 text-white bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:from-green-600 hover:via-green-700 hover:to-green-800 focus:ring-4 focus:ring-green-300 font-semibold rounded-xl text-md px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+    <i class="fa-solid fa-paper-plane text-lg"></i>
+    <span>Envoyer mes coordonnées</span>
+  </button>
 
 </div>
-  <h1>Profil de <%= @user.firstname %> <%= @user.name %></h1>
-tiot
 
-<div >
-rekjbnfrejnfrjfnrjh
+
+  <div class="max-w-sm mx-auto bg-white rounded-3xl shadow-lg p-6 border border-teal-900 mt-10">
+
+    <div class="text-center">
+    <h2 class="text-2xl font-semibold text-teal-900">Taylor Smith</h2>
+    <p class="text-sm text-teal-700 mt-2">Tech enthusiast, traveler, blogger, and entrepreneur</p>
+  </div>
+
+
+
+<div class="flex justify-center space-x-4">
+
+  <!-- LinkedIn -->
+  <% if @user.linkedin_url.present? %>
+    <%= link_to @user.linkedin_url, target: "_blank", rel: "noopener" do %>
+      <%= cl_image_tag("vgvzmv9kvjuh54suwjsf", width: 50, height: 50, crop: :fill, gravity: :center, aspect_ratio: "1:1", alt: "Logo LinkedIn", class: "object-cover transition-transform duration-300 ease-in-out hover:scale-110 hover:opacity-80") %>
+    <% end %>
+  <% end %>
+
+  <!-- Facebook -->
+  <% if @user.facebook_url.present? %>
+    <%= link_to @user.facebook_url, target: "_blank", rel: "noopener" do %>
+      <%= cl_image_tag("wamxgxygurijow1x3arm", width: 50, height: 50, crop: :fill, gravity: :center, aspect_ratio: "1:1", alt: "Logo Facebook", class: "object-cover transition-transform duration-300 ease-in-out hover:scale-110 hover:opacity-80") %>
+    <% end %>
+  <% end %>
+
+ <!-- WhatsApp -->
+<% if @user.whatsapp_url.present? %>
+  <%= link_to @user.whatsapp_url, target: "_blank", rel: "noopener" do %>
+    <%= cl_image_tag("oykliudw6pwoid9ywnam", width: 50, height: 50, crop: :fill, gravity: :center, aspect_ratio: "1:1", alt: "Logo WhatsApp", class: "object-cover transition-transform duration-300 ease-in-out hover:scale-110 hover:opacity-80") %>
+  <% end %>
+<% end %>
+
+
 </div>
+
+
+
+
+
+
+
+
+  </div>
 
 
 

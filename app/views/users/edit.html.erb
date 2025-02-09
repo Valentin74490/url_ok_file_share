@@ -1,0 +1,65 @@
+
+<h1 class="text-2xl font-bold mb-4">Modifier l'utilisateur <%= @user.firstname %> <%= @user.name %></h1>
+
+<%= simple_form_for @user, html: { multipart: true } do |f| %>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <%= f.input :name,
+                label: "Nom",
+                input_html: { class: "border border-gray-300 p-2 rounded-lg w-full" },
+                label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
+
+    <%= f.input :firstname,
+                label: "Prénom",
+                input_html: { class: "border border-gray-300 p-2 rounded-lg w-full" },
+                label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
+
+    <%= f.input :phone,
+                label: "Téléphone",
+                input_html: { class: "border border-gray-300 p-2 rounded-lg w-full" },
+                label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
+
+    <%= f.input :linkedin_url,
+                label: "Profil LinkedIn",
+                input_html: { class: "border border-gray-300 p-2 rounded-lg w-full" },
+                label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
+
+    <%= f.input :facebook_url,
+                label: "Profil Facebook",
+                input_html: { class: "border border-gray-300 p-2 rounded-lg w-full" },
+                label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
+
+    <%= f.input :whatsapp_number,
+            label: "Numéro WhatsApp",
+            input_html: { class: "border border-gray-300 p-2 rounded-lg w-full" },
+            label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
+
+
+    <%= f.input :photo,
+                label: "Photo de profil",
+                as: :file,
+                input_html: { class: "border border-gray-300 p-2 rounded-lg w-full" },
+                label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
+
+    <% if @user.photo.attached? %>
+      <div class="col-span-2">
+        <%= image_tag url_for(@user.photo), class: "w-32 h-32 rounded-full object-cover mt-2" %>
+      </div>
+    <% end %>
+
+    <%= f.input :fiche_contact_url,
+                label: "Fiche de contact (URL)",
+                input_html: { class: "border border-gray-300 p-2 rounded-lg w-full" },
+                label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
+
+    <%= f.input :address,
+                label: "Adresse",
+                input_html: { class: "border border-gray-300 p-2 rounded-lg w-full" },
+                label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
+  </div>
+
+  <div class="mt-4">
+    <%= f.button :submit,
+                 "Mettre à jour l'utilisateur",
+                 class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-full" %>
+  </div>
+<% end %>

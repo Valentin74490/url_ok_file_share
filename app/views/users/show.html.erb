@@ -1,6 +1,11 @@
 <h1>Profil de <%= @user.firstname %> <%= @user.name %></h1>
 <%= cl_image_tag @user.photo.key, alt: "Photo de profil", width: 400, height: 300, crop: :fill if @user.photo.attached? %>
 
+
+<h2>Toutes les infos de l'utilisateur :</h2>
+
+
+
 <h2>Landing Page</h2>
 <% if @user.landing_pages.any? %>
   <% @user.landing_pages.each do |landing_page| %>
@@ -9,3 +14,73 @@
 <% else %>
   <p>Aucune landing page associée.</p>
 <% end %>
+
+
+<li>Les infos</li>
+
+<% if @user.linkedin_url.present? %>
+  <%= @user.linkedin_url %>
+<% else %>
+  <%= "LinkedIn non renseigné" %>
+<% end %>
+
+
+
+<h2 class="mb-4 text-lg font-semibold text-black dark:text-white">Informations de l'utilisateur :</h2>
+
+<ul class="max-w-md space-y-2 text-gray-500 list-disc list-inside dark:text-gray-400">
+  <li>Nom : <%= @user.name %></li>
+  <li>Prénom : <%= @user.firstname %></li>
+
+  <% if @user.phone.present? %>
+    <li>Téléphone : <%= @user.phone %></li>
+  <% else %>
+    <li>Téléphone : Non renseigné</li>
+  <% end %>
+
+  <% if @user.linkedin_url.present? %>
+    <li>LinkedIn :
+      <a href="<%= @user.linkedin_url %>" target="_blank" class="text-blue-500 hover:underline">
+        <%= @user.linkedin_url %>
+      </a>
+    </li>
+  <% else %>
+    <li>LinkedIn : Non renseigné</li>
+  <% end %>
+
+  <% if @user.facebook_url.present? %>
+    <li>Facebook :
+      <a href="<%= @user.facebook_url %>" target="_blank" class="text-blue-500 hover:underline">
+        <%= @user.facebook_url %>
+      </a>
+    </li>
+  <% else %>
+    <li>Facebook : Non renseigné</li>
+  <% end %>
+
+  <% if @user.whatsapp_url.present? %>
+    <li>WhatsApp :
+      <a href="<%= @user.whatsapp_url %>" target="_blank" class="text-green-500 hover:underline">
+        <%= @user.whatsapp_url %>
+      </a>
+    </li>
+  <% else %>
+    <li>WhatsApp : Non renseigné</li>
+  <% end %>
+
+  <% if @user.fiche_contact_url.present? %>
+    <li>Fiche de contact :
+      <a href="<%= @user.fiche_contact_url %>" target="_blank" class="text-blue-500 hover:underline">
+        Voir la fiche
+      </a>
+    </li>
+  <% else %>
+    <li>Fiche de contact : Non renseignée</li>
+  <% end %>
+
+  <% if @user.address.present? %>
+    <li>Adresse : <%= @user.address %></li>
+  <% else %>
+    <li>Adresse : Non renseignée</li>
+  <% end %>
+</ul>
