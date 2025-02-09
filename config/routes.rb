@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   resources :landing_pages, only: [:show], param: :landing_url
 
   # Routes pour les utilisateurs et autres ressources
-  resources :users
+  resources :users do
+    member do
+      get :download_vcard
+    end
+  end  # <--- Ce 'end' ferme le bloc des utilisateurs
+
   resources :documents, only: [:new, :create, :show]
 
   # Root de l'application

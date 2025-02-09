@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_02_09_173242) do
+ActiveRecord::Schema[7.2].define(version: 2025_02_09_182423) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -71,6 +71,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_09_173242) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "whatsapp_number"
+    t.string "user_company"
+    t.string "user_email"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
