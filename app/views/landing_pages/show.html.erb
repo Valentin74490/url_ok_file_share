@@ -15,12 +15,14 @@
 
   <div class="flex space-x-4">
 
-  <!-- Bouton Enregistrer le contact -->
-  <button type="button"
-    class="flex items-center justify-center space-x-2 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:from-blue-600 hover:via-blue-700 hover:to-blue-800 focus:ring-4 focus:ring-blue-300 font-semibold rounded-xl text-md px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1">
-    <i class="fa-solid fa-address-book text-lg"></i>
-    <span>Enregistrer le contact</span>
-  </button>
+<!-- Bouton Enregistrer le contact avec lien de téléchargement -->
+<%= link_to download_vcard_user_path(@user),
+            class: "flex items-center justify-center space-x-2 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:from-blue-600 hover:via-blue-700 hover:to-blue-800 focus:ring-4 focus:ring-blue-300 font-semibold rounded-xl text-md px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1" do %>
+  <i class="fa-solid fa-address-book text-lg"></i>
+  <span>Enregistrer le contact</span>
+<% end %>
+
+
 
   <!-- Bouton Envoyer mes coordonnées -->
   <button type="button"
@@ -64,7 +66,9 @@
   <% end %>
 <% end %>
 
-
+<%= link_to "Télécharger la fiche contact",
+            download_vcard_user_path(@user),
+            class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105" %>
 </div>
 
 
