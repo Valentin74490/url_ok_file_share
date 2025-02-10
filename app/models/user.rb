@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :landing_pages
   has_one_attached :photo
+  has_one_attached :user_logo
 
 
   validates :name, presence: true  # Ce champ est obligatoire

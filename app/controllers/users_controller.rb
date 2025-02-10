@@ -71,10 +71,15 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :firstname, :photo, :phone, :linkedin_url,
-                                 :facebook_url, :whatsapp_url, :fiche_contact_url,
-                                 :address, :user_company, :user_email)
+    params.require(:user).permit(
+      :name, :firstname, :password, :phone,
+      :linkedin_url, :facebook_url, :whatsapp_url,
+      :fiche_contact_url, :address, :whatsapp_number,
+      :user_company, :user_email, :user_post,
+      :user_presentation, :user_logo, :photo
+    )
   end
+
 
 
   def create_landing_page(user)

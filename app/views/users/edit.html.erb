@@ -43,6 +43,30 @@
                 input_html: { class: "border border-gray-300 p-2 rounded-lg w-full", type: "email", placeholder: "email@example.com" },
                 label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
 
+    <%= f.input :user_post,
+                label: "Poste",
+                input_html: { class: "border border-gray-300 p-2 rounded-lg w-full", placeholder: "Poste occupé" },
+                label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
+
+    <%= f.input :user_presentation,
+                label: "Présentation",
+                as: :text,
+                input_html: { class: "border border-gray-300 p-2 rounded-lg w-full", rows: 5, placeholder: "Quelques mots sur vous" },
+                label_html: { class: "block text-sm font-medium text-gray-700 mb-1" } %>
+
+    <% if @user.user_logo.attached? %>
+  <div class="col-span-2">
+    <%= image_tag url_for(@user.user_logo), class: "w-32 h-32 rounded-full object-cover mt-2" %>
+  </div>
+<% end %>
+
+
+    <% if @user.user_logo.present? %>
+      <div class="col-span-2">
+        <%= image_tag @user.user_logo, class: "w-32 h-32 rounded-full object-cover mt-2" %>
+      </div>
+    <% end %>
+
     <%= f.input :photo,
                 label: "Photo de profil",
                 as: :file,
