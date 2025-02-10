@@ -1,3 +1,13 @@
+<% content_for :head do %>
+  <meta property="og:title" content="<%= @user.firstname %> <%= @user.name %>" />
+  <meta property="og:description" content="Découvrez le profil de <%= @user.firstname %>." />
+  <meta property="og:image" content="<%= @user.photo.key? ? cl_image_path(@user.photo.key) : @user.avatar %>" />
+  <meta property="og:url" content="<%= landing_page_url(@landing_page) %>" />
+  <meta property="og:type" content="profile" />
+<% end %>
+
+
+
 <div class="justify-center items-center flex flex-col">
 
  <div class="flex justify-center items-center p-5">
