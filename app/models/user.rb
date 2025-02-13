@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :landing_pages
+  has_many :landing_pages, dependent: :destroy
   has_one_attached :photo
   has_one_attached :user_logo
 

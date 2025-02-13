@@ -84,7 +84,15 @@
     <li>Adresse : Non renseignée</li>
   <% end %>
 
+ <%= link_to "Supprimer le user",
+    user_path(@user),
+    data: { turbo_method: :delete, turbo_confirm: "Es-tu sûr ?" },
+    class: "text-red-500 hover:underline"
+%>
+
+
+
+
 
 
 </ul>
-
