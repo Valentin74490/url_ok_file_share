@@ -20,9 +20,13 @@
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
   </head>
 
-  <body class= "h-full bg-[#F6F2F1]">
-    <main class="">
-      <%= yield %>
-    </main>
-  </body>
+  <body class="h-full bg-[#F6F2F1] flex">
+  <!-- Sidebar fixe (navbar) -->
+  <%= render "shared/navbar" %>
+
+  <!-- Contenu principal -->
+  <main class="flex-1 ml-64 p-6">
+    <%= yield %>
+  </main>
+</body>
 </html>

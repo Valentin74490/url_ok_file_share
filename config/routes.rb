@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   resources :documents, only: [:new, :create, :show]
 
   # Root de l'application
-  root "users#new"
+  root "pages#home"
 end
