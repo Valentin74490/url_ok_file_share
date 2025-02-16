@@ -1,9 +1,19 @@
+<!-- Navbar Mobile (affichée uniquement en mobile) -->
+<div id="mobile-bottom-bar" class="fixed bottom-0 left-0 w-full bg-gray-900 text-white flex justify-around items-center h-14 md:hidden">
+  <%= link_to users_path, class: "flex flex-col items-center justify-center w-full h-full" do %>
+    <i class="fa-solid fa-user text-lg"></i>
+  <% end %>
+
+  <%= link_to new_user_path, class: "flex flex-col items-center justify-center w-full h-full" do %>
+    <i class="fa-solid fa-plus text-lg"></i>
+  <% end %>
+</div>
 
 
 
 
 <!-- drawer component -->
-<div class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto bg-white w-64 dark:bg-gray-800">
+<div class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto bg-white w-64 dark:bg-gray-800 hidden md:block">
     <h5 id="drawer-disable-body-scrolling-label" class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">Menu</h5>
 
   <div class="py-4 overflow-y-auto">
